@@ -5,7 +5,10 @@ class SVG {
   }
 
   render() {
-    return `<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">${this.shape}${this.text}</svg>`;
+    return `<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
+    ${this.shape}
+    ${this.text}
+    </svg>`;
   }
 
   setText(value, color) {
@@ -18,7 +21,7 @@ class SVG {
   setShape(shapeSVG) {
     this.shape = shapeSVG.render();
   }
-  
+
   getSVG() {
     return this.shape && this.text ? this.render() : "";
   }

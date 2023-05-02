@@ -12,7 +12,7 @@ class CLI {
       message: "What text would you like in your SVG?(must be 3 or less)",
       validate: function(text) {
         if(text.length < 3) {
-        return  "Please retry. Must be 3 or less characters."
+        return  "Please retry. Must be 3 or less characters.";
         }
         return true;
       }
@@ -36,25 +36,25 @@ class CLI {
   ]).then(({text, textColor, shape, shapeColor}) => {
       let svg;
       if(shape == "Circle") {
-        svg = new Circle
+        svg = new Circle();
       }
       if(shape == "Triangle") {
-        svg = new Triangle
+        svg = new Triangle();
       }
       if(shape == "Square") {
-        svg = new Square
+        svg = new Square();
       }
-      svg.setColor(shapeColor)
-      const output = new SVG()
-      output.setText(text, textColor)
-      output.setShape(svg)
-      return writeFile("logo.svg", svg.render())
+      svg.setColor(shapeColor);
+      const output = new SVG();
+      output.setText(text, textColor);
+      output.setShape(svg);
+      return writeFile("logo.svg", output.getSVG())
     })
     .then(function() {
-      console.log("logo.svg was created")
+      console.log("logo.svg was created");
     })
     .catch((err) => {
-      console.log(err)
+      console.log(err);
     });
   }
 }   
